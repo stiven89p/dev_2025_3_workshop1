@@ -31,23 +31,33 @@ class Conversion:
         
     def decimal_a_romano(self, numero):
 
+        unidades={1:"I",2:"II",3:"III",4:"IV",5:"V",6:"VI",7:"VII",8:"VIII",9:"IX"}
+        decenas={1:"X",2:"XX",3:"XXX",4:"XL",5:"L",6:"LX",7:"LXX",8:"LXXX",9:"XC"}
+        centenas={1:"C",2:"CC",3:"CCC",4:"CD",5:"D",6:"DC",7:"DCC",8:"DCCC",9:"CM"}
+        millares={1:"M",2:"MM",3:"MMM"}
 
-        """
-        Convierte un número decimal a numeración romana.
+        numero_str = str(numero)[::-1]
+
+        traducido = []
+
+        for i, digito in enumerate(numero_str):
+            digito = int(digito)
+            if digito == 0:
+                continue
+            if i == 0:
+                traducido.append(unidades[digito])
+            elif i == 1:
+                traducido.append(decenas[digito])
+            elif i == 2:
+                traducido.append(centenas[digito])
+            elif i == 3:
+                traducido.append(millares[digito])
         
-        Args:
-            numero (int): Número decimal entre 1 y 3999
-            
-        Returns:
-            str: Número romano
-            
-        Ejemplo:
-            decimal_a_romano(9) -> "IX"
-            decimal_a_romano(1994) -> "MCMXCIV"
-        """
-        pass
+        traducido = "".join(traducido[::-1])
+        return traducido
     
     def romano_a_decimal(self, romano):
+    
         """
         Convierte un número romano a decimal.
         
@@ -78,7 +88,7 @@ class Conversion:
     
     def morse_a_texto(self, morse):
 
-        cod_morse = {'.-':'A', '-...':'B', '-.-.':'C', '-..':'D', '.':'E', '..-.':'F', '--.':'G', '....':'H','..':'I', '.---':'J', '-.-':'K', '.-..':'L', '--':'M', '-.':'N', '---':'O', '.--.':'P','--.-':'Q', '.-.':'R', '...':'S', '-':'T', '..-':'U', '...-':'V', '.--':'W', '-..-':'X','-.--':'Y', '--..':'Z','.----':'1', '..---':'2', '...--':'3', '....-':'4', '.....':'5', '-....':'6','--...':'7', '---..':'8', '----.':'9', '-----':'0','--..--':',', '.-.-.-':'.', '..--..':'?', '-..-.':'/', '-....-':'-', '..--.-':'_','-.--.':'(', '-.--.-':')', ' ':''}
+        cod_morse = {'.-':'A', '-...':'B', '-.-.':'C', '-..':'D', '.':'E', '..-.':'F', '--.':'G', '....':'H','..':'I', '.---':'J', '-.-':'K', '.-..':'L', '--':'M', '-.':'N', '---':'O', '.--.':'P','--.-':'Q', '.-.':'R', '...':'S', '-':'T', '..-':'U', '...-':'V', '.--':'W', '-..-':'X','-.--':'Y', '--..':'Z','.----':'1', '..---':'2', '...--':'3', '....-':'4', '.....':'5', '-....':'6','--...':'7', '---..':'8', '----.':'9', '-----':'0','--..--':',', '.-.-.-':'.', '..--..':'?', '-..-.':'/', '-....-':'-', '..--.-':'_','-.--.':'(', '-.--.-':')', '  ':''}
         traducido=[]
 
         separado = morse.split()
@@ -88,3 +98,4 @@ class Conversion:
 
         morse_a_texto = " ".join(traducido)
         return morse_a_texto
+        '''no esta terminado'''

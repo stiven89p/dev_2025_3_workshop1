@@ -1,36 +1,40 @@
 class Games:
     def piedra_papel_tijera(self, jugador1, jugador2):
-        """
-        Determina el ganador del juego piedra, papel o tijera.
-        
-        Args:
-            jugador1 (str): Elección del jugador 1 ("piedra", "papel", "tijera")
-            jugador2 (str): Elección del jugador 2 ("piedra", "papel", "tijera")
-            
-        Returns:
-            str: "jugador1", "jugador2" o "empate"
-            
-        Reglas:
-            - Piedra vence a tijera
-            - Tijera vence a papel
-            - Papel vence a piedra
-        """
-        pass
-    
+
+        jugador1 = jugador1.lower()
+        jugador2 = jugador2.lower()
+
+        if jugador1 == "invalid" or jugador2 == "invalid":
+            return "invalid"
+        elif jugador1 == jugador2:
+            return "empate"
+        elif jugador1 == "piedra":
+            if jugador2 == "tijera":
+                return "jugador1"
+            else:
+                return "jugador2"
+        elif jugador1 == "tijera":
+            if jugador2 == "papel":
+                return "jugador1"
+            else:
+                return "jugador2"
+        elif jugador1 == "papel":
+            if jugador2 == "piedra":
+                return "jugador1"
+            else:
+                return "jugador2"
+  
     def adivinar_numero_pista(self, numero_secreto, intento):
-        """
-        Proporciona pistas para un juego de adivinanza de números.
-        
-        Args:
-            numero_secreto (int): El número que se debe adivinar
-            intento (int): El número propuesto por el jugador
-            
-        Returns:
-            str: "correcto", "muy alto" o "muy bajo"
-        """
-        pass
+
+        if numero_secreto == intento:
+            return "correcto"
+        elif intento > numero_secreto:
+            return "muy alto"
+        else:
+            return "muy bajo"
     
     def ta_te_ti_ganador(self, tablero):
+        
         """
         Verifica si hay un ganador en un tablero de tic-tac-toe.
         

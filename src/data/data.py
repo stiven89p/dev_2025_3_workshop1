@@ -38,44 +38,37 @@ class Data:
         pass
     
     def merge_ordenado(self, lista1, lista2):
-        """
-        Combina dos listas ordenadas en una sola lista ordenada.
-        
-        Args:
-            lista1 (list): Primera lista ordenada
-            lista2 (list): Segunda lista ordenada
-            
-        Returns:
-            list: Lista combinada y ordenada
-        """
-        pass
+        lista_combinada = []
+
+        lista_combinada = lista1 + lista2
+
+        lista_combinada.sort()
+
+        return lista_combinada
     
     def rotar_lista(self, lista, k):
-        """
-        Rota los elementos de una lista k posiciones a la derecha.
-        
-        Args:
-            lista (list): Lista a rotar
-            k (int): Número de posiciones a rotar
-            
-        Returns:
-            list: Lista rotada
-        """
-        pass
+        if not lista:
+            return lista
+
+        n = len(lista)
+        k = k % n
+
+        lista = lista[-k:] + lista[:-k]
+
+        return lista
     
     def encuentra_numero_faltante(self, lista):
-        """
-        Encuentra el número faltante en una lista de enteros del 1 al n.
-        
-        Args:
-            lista (list): Lista de enteros del 1 al n con un número faltante
-            
-        Returns:
-            int: El número que falta en la secuencia
-        """
-        pass
+
+        n = len(lista) + 1
+        for contador in range(1, n+1):
+            if contador not in lista:
+                return contador
     
     def es_subconjunto(self, conjunto1, conjunto2):
+        if conjunto1 in conjunto2:
+            return True
+        else:
+            return False
         """
         Verifica si conjunto1 es subconjunto de conjunto2 sin usar set.
         
