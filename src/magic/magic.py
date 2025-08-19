@@ -5,66 +5,57 @@ class Magic:
     """
     
     def fibonacci(self, n):
-        """
-        Calcula el n-ésimo número de la secuencia de Fibonacci.
-        
-        Args:
-            n (int): Posición en la secuencia (empezando desde 0)
-            
-        Returns:
-            int: El n-ésimo número de Fibonacci
-        """
-        pass
-    
+        a, b = 0, 1
+        for contador in range(n):
+            a, b = b, a + b
+        return a
+                                                                                                                                                       
     def secuencia_fibonacci(self, n):
-        """
-        Genera los primeros n números de la secuencia de Fibonacci.
         
-        Args:
-            n (int): Cantidad de números a generar
-            
-        Returns:
-            list: Lista con los primeros n números de Fibonacci
-        """
-        pass
+        a, b = 0, 1
+        serie = []
+        for contador in range(n):
+            serie.append(a)   
+            a, b = b, a + b 
+        return serie
     
     def es_primo(self, n):
-        """
-        Verifica si un número es primo.
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es primo, False en caso contrario
-        """
-        pass
+        if n <= 1:
+            return False
+        raiz = int(n**0.5)+1
+        for contador in range(2,raiz):
+            if n%contador == 0:
+                return False
+        return True
     
     def generar_primos(self, n):
-        """
-        Genera una lista de números primos hasta n.
-        
-        Args:
-            n (int): Límite superior para generar primos
-            
-        Returns:
-            list: Lista de números primos hasta n
-        """
-        pass
+        lista = []
+        if n <= 1:
+            return lista
+        for numero in range(2,n):
+            raiz = int(numero**0.5)+1
+            es_primo = True
+            for contador in range(2,raiz):
+                if numero%contador == 0:
+                    es_primo = False
+                    break
+            if es_primo:
+                lista.append(numero)
+        return lista
     
     def es_numero_perfecto(self, n):
-        """
-        Verifica si un número es perfecto (igual a la suma de sus divisores propios).
+        lista = []
+        if n <= 1:
+            return 0
         
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número perfecto, False en caso contrario
-        """
-        pass
+        for numero in range(1,n):
+            if n % numero == 0:
+                lista.append(numero)
+        return sum(lista) == n
+       
     
     def triangulo_pascal(self, filas):
+
         """
         Genera las primeras n filas del triángulo de Pascal.
         
@@ -77,16 +68,10 @@ class Magic:
         pass
     
     def factorial(self, n):
-        """
-        Calcula el factorial de un número.
-        
-        Args:
-            n (int): Número para calcular su factorial
-            
-        Returns:
-            int: El factorial de n
-        """
-        pass
+        factorial = 1
+        for n in range (1,n+1):
+            factorial *= n
+        return factorial
     
     def mcd(self, a, b):
         """
@@ -115,28 +100,12 @@ class Magic:
         pass
     
     def suma_digitos(self, n):
-        """
-        Calcula la suma de los dígitos de un número.
-        
-        Args:
-            n (int): Número para sumar sus dígitos
-            
-        Returns:
-            int: La suma de los dígitos de n
-        """
-        pass
+        litas = [int(digito) for digito in str(n)]
+        return sum(litas)
     
     def es_numero_armstrong(self, n):
-        """
-        Verifica si un número es de Armstrong (igual a la suma de sus dígitos elevados a la potencia del número de dígitos).
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número de Armstrong, False en caso contrario
-        """
-        pass
+        lista = [int(digito) for digito in str(n)]
+        return sum(digito**3 for digito in lista) == n
     
     def es_cuadrado_magico(self, matriz):
         """

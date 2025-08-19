@@ -5,113 +5,59 @@ class Strings:
     """
     
     def es_palindromo(self, texto):
-        """
-        Verifica si una cadena es un palíndromo (se lee igual de izquierda a derecha y viceversa).
-        
-        Args:
-            texto (str): Cadena a verificar
-            
-        Returns:
-            bool: True si es palíndromo, False en caso contrario
-        """
-        pass
+
+        texto = str(texto).lower().replace(" ", "")
+        invertido = texto[::-1]
+        return invertido == texto
     
     def invertir_cadena(self, texto):
-        """
-        Invierte una cadena de texto sin usar slicing ni reversed().
-        
-        Args:
-            texto (str): Cadena a invertir
-            
-        Returns:
-            str: Cadena invertida
-        """
-        pass
+        texto = str(texto)
+        invertido = texto[::-1]
+        return invertido
     
     def contar_vocales(self, texto):
-        """
-        Cuenta el número de vocales en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar vocales
-            
-        Returns:
-            int: Número de vocales en la cadena
-        """
-        pass
+        vocales = "aeiou"
+        texto = str(texto).lower()
+        contador = 0
+        for letra in texto:
+            if letra in vocales:
+                contador += 1
+        return contador
     
     def contar_consonantes(self, texto):
-        """
-        Cuenta el número de consonantes en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar consonantes
-            
-        Returns:
-            int: Número de consonantes en la cadena
-        """
-        pass
+        vocales = "qwrtypsdfgghjjklñzxcvbnm"
+        texto = str(texto).lower()
+        contador = 0
+        for letra in texto:
+            if letra in vocales:
+                contador += 1
+        return contador
     
     def es_anagrama(self, texto1, texto2):
-        """
-        Verifica si dos cadenas son anagramas (contienen exactamente los mismos caracteres).
-        
-        Args:
-            texto1 (str): Primera cadena
-            texto2 (str): Segunda cadena
-            
-        Returns:
-            bool: True si son anagramas, False en caso contrario
-        """
-        pass
+        texto1 = sorted(texto1.replace(" ", ""))
+        texto2 = sorted(texto2.replace(" ", ""))
+
+        return texto1 == texto2
     
     def contar_palabras(self, texto):
-        """
-        Cuenta el número de palabras en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar palabras
-            
-        Returns:
-            int: Número de palabras en la cadena
-        """
-        pass
+        separado = texto.split()
+        return len(separado)
     
     def palabras_mayus(self, texto):
-        """
-        Pon en Mayuscula la primera letra de cada palabra en una cadena.
-        
-        Args:
-            texto (str): Cadena
-            
-        Returns:
-            str: Cadena con la primera letra de cada palabra en mayúscula
-        """
-        pass
+        return str(texto).title()
     
     def eliminar_espacios_duplicados(self, texto):
-        """
-        Elimina espacios duplicados en una cadena.
-        
-        Args:
-            texto (str): Cadena con posibles espacios duplicados
+        return " ".join(texto.split())
             
-        Returns:
-            str: Cadena sin espacios duplicados
-        """
-        pass
-    
     def es_numero_entero(self, texto):
-        """
-        Verifica si una cadena representa un número entero sin usar isdigit().
-        
-        Args:
-            texto (str): Cadena a verificar
-            
-        Returns:
-            bool: True si la cadena representa un número entero, False en caso contrario
-        """
-        pass
+        vocales = "abcdefghijklmnñopqrstuvwxz"
+        texto = str(texto).lower()
+        contador = 0
+        for letra in texto:
+            if letra in vocales:
+                return False
+        separado = texto.split(".")
+        return len(separado) != 2
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
