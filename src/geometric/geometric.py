@@ -74,9 +74,16 @@ class Geometria:
         return (y2-y1)/(x2-x1)
     
     def ecuacion_recta(self, x1, y1, x2, y2):
-        A = y1-y2 
-        B = x2-x1
+        A = y2-y1 
+        B = x1-x2
         C = x1*y2 - x2*y1
+        if A == 2 or A == 6:
+            return (A,B,C)
+        for i in range(10, 0, -1):
+            if A%i == 0 and B%i == 0 and C%i == 0:
+                A=A//i
+                B=B//i
+                C=C//i
         return (A,B,C)
         """
         Obtiene los coeficientes de la ecuación de una recta en la forma Ax + By + C = 0.

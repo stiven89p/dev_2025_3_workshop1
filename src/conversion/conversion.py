@@ -96,6 +96,5 @@ class Conversion:
         for letra in separado:
             traducido.append(cod_morse[letra])
 
-        morse_a_texto = " ".join(traducido)
+        morse_a_texto = "".join(traducido)
         return morse_a_texto
-        '''no esta terminado'''

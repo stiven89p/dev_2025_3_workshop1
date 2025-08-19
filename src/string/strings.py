@@ -48,6 +48,7 @@ class Strings:
     
     def eliminar_espacios_duplicados(self, texto):
         return " ".join(texto.split())
+        #no terminado
             
     def es_numero_entero(self, texto):
         vocales = "abcdefghijklmnñopqrstuvwxz"
