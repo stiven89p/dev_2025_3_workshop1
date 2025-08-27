@@ -9,7 +9,7 @@ class Geometria:
     
     def perimetro_rectangulo(self, base, altura):
         return base*2 + altura*2
-    
+     
     def area_circulo(self, radio):
         return 3.1416 * radio*radio
     
@@ -76,7 +76,7 @@ class Geometria:
     def ecuacion_recta(self, x1, y1, x2, y2):
         A = y2-y1 
         B = x1-x2
-        C = x1*y2 - x2*y1
+        C = x2*y1 - x1*y2 
         if A == 2 or A == 6:
             return (A,B,C)
         for i in range(10, 0, -1):

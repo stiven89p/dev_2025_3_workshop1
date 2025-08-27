@@ -87,14 +87,11 @@ class Strings:
         pass
     
     def encontrar_subcadena(self, texto, subcadena):
-        """
-        Encuentra todas las posiciones de una subcadena en un texto sin usar find() o index().
-        
-        Args:
-            texto (str): Cadena principal
-            subcadena (str): Subcadena a buscar
-            
-        Returns:
-            list: Lista con las posiciones iniciales de cada ocurrencia
-        """
-        pass
+        if not subcadena:
+            return []
+        posiciones = []
+        n, m = len(texto), len(subcadena)
+        for i in range(n - m + 1):
+            if texto[i:i + m] == subcadena:
+                posiciones.append(i)
+        return posiciones

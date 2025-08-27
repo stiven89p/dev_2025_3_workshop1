@@ -21,21 +21,9 @@ class Data:
     def eliminar_duplicados(self, lista):
         sin_duclicado = []
         for elemento in lista:
-            if elemento not in sin_duclicado:
+            if not any(elemento == x and type(elemento) == type(x) for x in sin_duclicado):
                 sin_duclicado.append(elemento)
-        
         return sin_duclicado
-        """
-        Elimina elementos duplicados de una lista sin usar set().
-        Mantiene el orden original de aparición.
-        
-        Args:
-            lista (list): Lista con posibles duplicados
-            
-        Returns:
-            list: Lista sin elementos duplicados
-        """
-        pass
     
     def merge_ordenado(self, lista1, lista2):
         lista_combinada = []
@@ -65,22 +53,11 @@ class Data:
                 return contador
     
     def es_subconjunto(self, conjunto1, conjunto2):
-        if conjunto1 in conjunto2:
-            return True
-        else:
-            return False
-        """
-        Verifica si conjunto1 es subconjunto de conjunto2 sin usar set.
+        for elemento in conjunto1:
+            if elemento not in conjunto2:
+                return False
+        return True
         
-        Args:
-            conjunto1 (list): Posible subconjunto
-            conjunto2 (list): Conjunto principal
-            
-        Returns:
-            bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
-        """
-        pass
-    
     def implementar_pila(self):
         """
         Implementa una estructura de datos tipo pila (stack) usando listas.
@@ -100,13 +77,6 @@ class Data:
         pass
     
     def matriz_transpuesta(self, matriz):
-        """
-        Calcula la transpuesta de una matriz.
-        
-        Args:
-            matriz (list): Lista de listas que representa una matriz
-            
-        Returns:
-            list: Matriz transpuesta
-        """
-        pass
+        if not matriz:
+            return []
+        return [list(fila) for fila in zip(*matriz)]

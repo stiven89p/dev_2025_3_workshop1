@@ -55,17 +55,21 @@ class Magic:
        
     
     def triangulo_pascal(self, filas):
+        if filas <= 0:
+            return []
 
-        """
-        Genera las primeras n filas del triángulo de Pascal.
-        
-        Args:
-            filas (int): Número de filas a generar
-            
-        Returns:
-            list: Lista de listas que representa el triángulo de Pascal
-        """
-        pass
+        triangulo = []
+        for i in range(filas):
+            if i == 0:
+                triangulo.append([1])
+            else:
+                prev = triangulo[-1]
+                fila = [1]
+                for j in range(1, len(prev)):
+                    fila.append(prev[j - 1] + prev[j])
+                fila.append(1)
+                triangulo.append(fila)
+        return triangulo
     
     def factorial(self, n):
         factorial = 1
@@ -74,19 +78,13 @@ class Magic:
         return factorial
     
     def mcd(self, a, b):
-        """
-        Calcula el máximo común divisor de dos números.
-        
-        Args:
-            a (int): Primer número
-            b (int): Segundo número
-            
-        Returns:
-            int: El máximo común divisor de a y b
-        """
-        pass
+        while b != 0:
+            a, b = b, a % b
+        return abs(a)
     
     def mcm(self, a, b):
+        mcm = abs(a * b) // self.mcd(a, b)
+        return mcm
         """
         Calcula el mínimo común múltiplo de dos números.
         
