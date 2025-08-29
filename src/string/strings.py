@@ -47,8 +47,14 @@ class Strings:
         return str(texto).title()
     
     def eliminar_espacios_duplicados(self, texto):
-        return " ".join(texto.split())
-        #no terminado
+        resultado = []
+        anterior = ""
+        for c in texto:
+            if c == " " and anterior == " ":
+                continue
+            resultado.append(c)
+            anterior = c
+        return "".join(resultado)
             
     def es_numero_entero(self, texto):
         vocales = "abcdefghijklmnñopqrstuvwxz"
@@ -61,30 +67,18 @@ class Strings:
         return len(separado) != 2
     
     def cifrar_cesar(self, texto, desplazamiento):
-        """
-        Aplica el cifrado César a una cadena de texto.
-        
-        Args:
-            texto (str): Cadena a cifrar
-            desplazamiento (int): Número de posiciones a desplazar cada letra
-            
-        Returns:
-            str: Cadena cifrada
-        """
-        pass
+        resultado = []
+        for c in texto:
+            if c.isalpha():
+                base = ord('A') if c.isupper() else ord('a')
+                # desplazar dentro del alfabeto (26 letras)
+                resultado.append(chr((ord(c) - base + desplazamiento) % 26 + base))
+            else:
+                resultado.append(c)  # deja los símbolos, números, espacios igual
+        return "".join(resultado)
     
     def descifrar_cesar(self, texto, desplazamiento):
-        """
-        Descifra una cadena cifrada con el método César.
-        
-        Args:
-            texto (str): Cadena cifrada
-            desplazamiento (int): Número de posiciones que se desplazó cada letra
-            
-        Returns:
-            str: Cadena descifrada
-        """
-        pass
+        return self.cifrar_cesar(texto, -desplazamiento)
     
     def encontrar_subcadena(self, texto, subcadena):
         if not subcadena:

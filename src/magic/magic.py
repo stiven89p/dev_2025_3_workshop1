@@ -85,17 +85,6 @@ class Magic:
     def mcm(self, a, b):
         mcm = abs(a * b) // self.mcd(a, b)
         return mcm
-        """
-        Calcula el mínimo común múltiplo de dos números.
-        
-        Args:
-            a (int): Primer número
-            b (int): Segundo número
-            
-        Returns:
-            int: El mínimo común múltiplo de a y b
-        """
-        pass
     
     def suma_digitos(self, n):
         litas = [int(digito) for digito in str(n)]
@@ -106,13 +95,24 @@ class Magic:
         return sum(digito**3 for digito in lista) == n
     
     def es_cuadrado_magico(self, matriz):
-        """
-        Verifica si una matriz es un cuadrado mágico (suma igual en filas, columnas y diagonales).
+        n = len(matriz)
+        if n == 0 or any(len(fila) != n for fila in matriz):
+            return False
         
-        Args:
-            matriz (list): Lista de listas que representa una matriz cuadrada
-            
-        Returns:
-            bool: True si es un cuadrado mágico, False en caso contrario
-        """
-        pass
+        suma_objetivo = sum(matriz[0])
+        
+        for fila in matriz:
+            if sum(fila) != suma_objetivo:
+                return False
+        
+        for col in range(n):
+            if sum(matriz[fila][col] for fila in range(n)) != suma_objetivo:
+                return False
+        
+        if sum(matriz[i][i] for i in range(n)) != suma_objetivo:
+            return False
+        
+        if sum(matriz[i][n - 1 - i] for i in range(n)) != suma_objetivo:
+            return False
+        
+        return True

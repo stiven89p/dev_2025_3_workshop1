@@ -59,22 +59,52 @@ class Data:
         return True
         
     def implementar_pila(self):
-        """
-        Implementa una estructura de datos tipo pila (stack) usando listas.
+        pila = []
+
+        def isEmpty():
+            return len(pila) == 0
         
-        Returns:
-            dict: Diccionario con métodos push, pop, peek y is_empty
-        """
-        pass
+        def push(elemento):
+            pila.append(elemento)
+        
+        def peek():
+            if not isEmpty():
+                return pila[-1]
+            
+        def pop():
+            return pila.pop()
+            
+        dictPila = {
+            "is_empty":isEmpty,
+            "push":push,
+            "peek":peek,
+            "pop":pop
+        }
+        return dictPila
     
     def implementar_cola(self):
-        """
-        Implementa una estructura de datos tipo cola (queue) usando listas.
+        cola = []
+
+        def isEmpty():
+            return len(cola) == 0
         
-        Returns:
-            dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
-        """
-        pass
+        def enqueue(elemento):
+            cola.append(elemento)
+            
+        def dequeue():
+            return cola.pop(0)
+        
+        def peek():
+            if not isEmpty():
+                return cola[0]
+        
+        dictCola = {
+            "is_empty":isEmpty,
+            "enqueue":enqueue,
+            "dequeue":dequeue,
+            "peek":peek
+        }
+        return dictCola
     
     def matriz_transpuesta(self, matriz):
         if not matriz:

@@ -20,13 +20,16 @@ class Stats:
             return (numero1 + numero2) / 2
     
     def moda(self, numeros):
+        if len(numeros) == 0:
+                return None
+
         repetidos = {}
         for n in numeros:
             if n in repetidos:
                 repetidos[n] += 1
             else:
                 repetidos[n] = 1
-        return max(repetidos)
+        return max(repetidos, key=repetidos.get)
     
         """
         Encuentra el valor que aparece con mayor frecuencia en la lista.
