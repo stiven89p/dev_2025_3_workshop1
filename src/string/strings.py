@@ -71,10 +71,9 @@ class Strings:
         for c in texto:
             if c.isalpha():
                 base = ord('A') if c.isupper() else ord('a')
-                # desplazar dentro del alfabeto (26 letras)
                 resultado.append(chr((ord(c) - base + desplazamiento) % 26 + base))
             else:
-                resultado.append(c)  # deja los símbolos, números, espacios igual
+                resultado.append(c)
         return "".join(resultado)
     
     def descifrar_cesar(self, texto, desplazamiento):

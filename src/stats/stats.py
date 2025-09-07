@@ -31,21 +31,7 @@ class Stats:
                 repetidos[n] = 1
         return max(repetidos, key=repetidos.get)
     
-        """
-        Encuentra el valor que aparece con mayor frecuencia en la lista.
-        Si hay empate, retorna el primer valor encontrado.
         
-        Args:
-            numeros (list): Lista de números
-            
-        Returns:
-            number: El valor más frecuente
-            
-        Ejemplo:
-            moda([1, 2, 2, 3, 3, 3]) -> 3
-        """
-        pass
-    
     def desviacion_estandar(self, numeros):
         if len(numeros) == 0:
             return 0
